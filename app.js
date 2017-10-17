@@ -20,8 +20,16 @@ var path = require('path');
 var azure = require('azure-storage');
 var formidable = require('formidable');
 var helpers = require('./helpers.js');
+const appInsights = require('applicationinsights');
+appInsights.setup(process.env.INSTRUMENTATION_KEY);
+appInsights.start();
+
+var telemetry = appInsights.defaultClient;
+
 
 var app = express();
+
+
 
 // Global request options, set the retryPolicy
 var blobClient = azure.createBlobService().withFilter(new azure.ExponentialRetryPolicyFilter());
@@ -96,6 +104,7 @@ app.post('/uploadhandler', function (req, res) {
         if (error != null) {
           helpers.renderError(res);
         } else {
+          telemetry.trackEvent({name: "File Uploded"});
           res.redirect('/Display');
         }
       });

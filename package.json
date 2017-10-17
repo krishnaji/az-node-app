@@ -6,6 +6,7 @@
     "start": "node ./bin/server.js"
   },
   "dependencies": {
+    "applicationinsights": "^1.0.0",
     "azure-storage": "",
     "debug": "^2.2.0",
     "ejs": "~2.3.3",
