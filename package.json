@@ -9,7 +9,7 @@
     "applicationinsights": "^1.0.0",
     "azure-storage": "",
     "debug": "^2.2.0",
-    "ejs": "~2.3.3",
+    "ejs": "~2.5.5",
     "express": "~4.13.1",
     "express-ejs-layouts": "^1.1.0",
     "formidable": "^1.0.17"
